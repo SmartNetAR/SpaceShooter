@@ -5,7 +5,7 @@ using UnityEngine.UI; //para usar el tipo Text
 
 public class GameController : MonoBehaviour {
 
-    public GameObject hazard;
+    public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
         {
             for (int i = 0; i <= Random.Range(0, hazardCount); i++)
             {
+				GameObject hazard = hazards[Random.Range(0, hazards.Length)];
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
